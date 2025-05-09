@@ -1,0 +1,6 @@
+<div class="container responsive-grid">
+  <app-product-card
+    *ngFor="let product of products$ | async; trackBy: productById"
+    [product]="product"
+  ></app-product-card>
+</div>
