@@ -3,10 +3,8 @@
     <mat-card-title>{{ product.title }}</mat-card-title>
     <mat-card-subtitle>${{ product.price.toFixed(2) }}</mat-card-subtitle>
   </mat-card-header>
-  <br />
   <img mat-card-image [src]="product.image" [alt]="product.title" />
   <mat-card-content>
-    <br />
     <p>
       {{ product.description }}
     </p>

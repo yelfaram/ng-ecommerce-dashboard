@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.product-filter-sidebar {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  mat-form-field {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  mat-slider {
+    width: 95%;
+  }
+
+  mat-divider {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mat-mdc-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 12px;
+    margin-top: 8px;
+  }
+
+  .filter-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+}

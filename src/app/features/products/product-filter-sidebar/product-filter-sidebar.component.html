@@ -1,0 +1,32 @@
+<div class="product-filter-sidebar" *ngIf="filters">
+  <h2>Filters</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <mat-select>
+      <mat-option
+        *ngFor="let category of filters.categories"
+        [value]="category.key"
+      >
+        {{ category.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-label>Price</mat-label>
+  <mat-slider discrete min="0" [max]="filters.maxPrice" step="10">
+    <input matSliderStartThumb />
+    <input matSliderEndThumb />
+  </mat-slider>
+
+  <mat-label>Rating</mat-label>
+  <mat-slider discrete min="1" max="5" step="1">
+    <input matSliderThumb />
+  </mat-slider>
+
+  <mat-divider></mat-divider>
+
+  <div class="filter-actions">
+    <button mat-raised-button color="primary">Apply Filters</button>
+    <button mat-button>Clear Filters</button>
+  </div>
+</div>

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
-import { Observable } from 'rxjs';
+import { Observable, shareReplay } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+
+// service for product api instance at the root level
+// since it's a singleton, it's only instantiated once and shared across the app (benefits from dependency injection)
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +15,10 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  // observable for data stream (api)
+  // observable for data stream (api) and shareReplay to cache the data
+  // => multiple subscriptions can be made so multiple http requests are not made (we use shareReplay)
+  // The HTTP call is only executed upon subscription. Hence, multiple subscriptions = multiple HTTP calls.
   getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.url);
+    return this.http.get<Product[]>(this.url).pipe(shareReplay(1));
   }
 }

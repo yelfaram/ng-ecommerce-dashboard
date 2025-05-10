@@ -1,0 +1,12 @@
+<ng-container *ngIf="products$ | async as products">
+  <mat-sidenav-container class="product-page-container">
+    <mat-sidenav mode="side" opened>
+      <app-product-filter-sidebar
+        [products]="products"
+      ></app-product-filter-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-product-list [products]="products"></app-product-list>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>

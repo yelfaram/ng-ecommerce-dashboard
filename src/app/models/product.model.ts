@@ -1,3 +1,5 @@
+// interface for product api response (generic type)
+
 export interface Product {
   id: number;
   title: string;

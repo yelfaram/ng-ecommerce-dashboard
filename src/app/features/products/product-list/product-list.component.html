@@ -1,6 +1,6 @@
 <div class="container responsive-grid">
   <app-product-card
-    *ngFor="let product of products$ | async; trackBy: productById"
+    *ngFor="let product of products; trackBy: productById"
     [product]="product"
   ></app-product-card>
 </div>
