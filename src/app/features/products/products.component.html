@@ -2,6 +2,7 @@
   <mat-sidenav-container class="product-page-container">
     <mat-sidenav mode="side" opened>
       <app-product-filter-sidebar
+        (filtersApplied)="onFiltersChanged($event)"
         [products]="products"
       ></app-product-filter-sidebar>
     </mat-sidenav>

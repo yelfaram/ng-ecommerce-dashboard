@@ -4,6 +4,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductFilterSidebarComponent } from './product-filter-sidebar/product-filter-sidebar.component';
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
+import { UserFilter } from '../../models/user-filter.model';
 
 @Component({
   selector: 'app-products',
@@ -19,4 +20,8 @@ import { CommonModule } from '@angular/common';
 export class ProductsComponent {
   // DI of product service and makes use of observable to fetch from api
   readonly products$ = inject(ProductService).getAllProducts();
+
+  onFiltersChanged(filters: UserFilter) {
+    console.log(filters);
+  }
 }

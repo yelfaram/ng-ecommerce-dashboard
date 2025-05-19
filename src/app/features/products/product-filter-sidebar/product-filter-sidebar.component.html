@@ -2,7 +2,7 @@
   <h2>Filters</h2>
   <mat-form-field appearance="fill">
     <mat-label>Category</mat-label>
-    <mat-select>
+    <mat-select (selectionChange)="selectedCategory.set($event.value)">
       <mat-option
         *ngFor="let category of filters.categories"
         [value]="category.key"
@@ -14,19 +14,21 @@
 
   <mat-label>Price</mat-label>
   <mat-slider discrete min="0" [max]="filters.maxPrice" step="10">
-    <input matSliderStartThumb />
-    <input matSliderEndThumb />
+    <input matSliderStartThumb (valueChange)="selectedPriceMin.set($event)" />
+    <input matSliderEndThumb (valueChange)="selectedPriceMax.set($event)" />
   </mat-slider>
 
   <mat-label>Rating</mat-label>
   <mat-slider discrete min="1" max="5" step="1">
-    <input matSliderThumb />
+    <input matSliderThumb (valueChange)="selectedRating.set($event)" />
   </mat-slider>
 
   <mat-divider></mat-divider>
 
   <div class="filter-actions">
-    <button mat-raised-button color="primary">Apply Filters</button>
-    <button mat-button>Clear Filters</button>
+    <button mat-raised-button color="primary" (click)="applyFilters()">
+      Apply Filters
+    </button>
+    <button mat-button (click)="clearAllFilters()">Clear Filters</button>
   </div>
 </div>
