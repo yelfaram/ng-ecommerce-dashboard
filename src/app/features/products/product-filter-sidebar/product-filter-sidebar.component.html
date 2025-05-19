@@ -5,7 +5,7 @@
     <mat-select (selectionChange)="selectedCategory.set($event.value)">
       <mat-option
         *ngFor="let category of filters.categories"
-        [value]="category.key"
+        [value]="category.label"
       >
         {{ category.label }}
       </mat-option>
