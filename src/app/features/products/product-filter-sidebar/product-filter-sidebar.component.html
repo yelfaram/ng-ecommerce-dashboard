@@ -1,14 +1,14 @@
-<div class="product-filter-sidebar" *ngIf="filters">
+@if (filters) {
+<div class="product-filter-sidebar">
   <h2>Filters</h2>
   <mat-form-field appearance="fill">
     <mat-label>Category</mat-label>
     <mat-select (selectionChange)="selectedCategory.set($event.value)">
-      <mat-option
-        *ngFor="let category of filters.categories"
-        [value]="category.label"
-      >
+      @for (category of filters.categories; track category.key) {
+      <mat-option [value]="category.label">
         {{ category.label }}
       </mat-option>
+      }
     </mat-select>
   </mat-form-field>
 
@@ -32,3 +32,4 @@
     <button mat-button (click)="clearAllFilters()">Clear Filters</button>
   </div>
 </div>
+}
